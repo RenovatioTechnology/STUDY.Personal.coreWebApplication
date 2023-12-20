@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<h3>@ViewBag.Message</h3>
+
+
+<!-- Print Customer Details -->
+
+<p>There are @ViewBag.CustomerCount customers added into the list.</p>
+<ul>
+    @foreach(var item in ViewBag.CustomerList)
+    {
+        <li>@item.Id - @item.Name - @item.Amount</li>
+    }
+</ul>
+
