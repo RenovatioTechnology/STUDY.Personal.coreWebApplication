@@ -17,3 +17,12 @@
     }
 </ul>
 
+<hr/>
+
+<!-- Navigate to another action method with HtmlHelper, Param 1=visible text,2=name of action method,3=name of controller -->
+@Html.ActionLink("Details Page Using HTML Helpers","Details","Customer")
+
+<br/>
+<!--Navigating to various tabs CTRL SHIFT TAB-->
+<!--Anchor tag to navigate to customer message -->
+<a a asp-controller="Customer" asp-action="Message">Message, Using Tag Helpers</a>
