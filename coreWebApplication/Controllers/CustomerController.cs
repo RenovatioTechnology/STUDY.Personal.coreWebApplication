@@ -28,5 +28,17 @@ namespace coreWebApplication.Controllers
 
             return View();
         }
+
+        //  Action view with Views/Shared/_Layout.cshtml
+        public IActionResult Details()
+        {
+            return View();
+        }
+
+        // Action view without a layout
+        public IActionResult Message()
+        {
+            return View();  
+        }
     }
 }
