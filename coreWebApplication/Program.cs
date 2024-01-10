@@ -18,6 +18,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    //pattern: "{controller=Home}/{action=Index}/{id?}");
+    // Here we are changing the default route from Home to our Customer controller 
+    pattern: "{controller=Customer}/{action=Index}/{id?}");
 
 app.Run();
