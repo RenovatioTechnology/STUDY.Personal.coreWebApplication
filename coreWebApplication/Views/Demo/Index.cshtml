@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>@ViewBag.Message</h2>
+    <p>There are @ViewBag.CustomerCount customers added to the list.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Id</th>
+                <th>Customer Name</th>
+                <th>Customer Amount</th>
+            </tr>
+        </thead>
+        <!-- Next line use of tbody with foreach loop  to iterate the table loop.-->
+        <tbody>
+            @foreach (var item in ViewBag.CustomerList)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }   
+        </tbody>
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <!--We will now access this propty using ViewData value pair, as in public IActionResult Details() method -->
+    <!-- for our DemoController-->
+    <h2>@ViewData["Message"]</h2>
+    <p>There are @ViewData["CustomerCount"] customers added to the list.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Id</th>
+                <th>Customer Name</th>
+                <th>Customer Amount</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <!-- We will need to convert ViewData list type, where the customer is the type. -->
+            <!-- This is a type casting that is require in the case of ViewData before using the items -->
+            @foreach (var item in ViewData["CustomerList"] as List<Customer>)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
