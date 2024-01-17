@@ -29,7 +29,7 @@ namespace coreWebApplication.Controllers
             return View();
         }
 
-        // TempData next section for development 
+        // TempData next section for developments
 
     }
 }
