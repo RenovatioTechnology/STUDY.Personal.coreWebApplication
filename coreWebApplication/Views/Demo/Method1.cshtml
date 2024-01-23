@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Method1</title>
+</head>
+<body>
+    <h2>@TempData["Message"]</h2>
+    <p>There are @TempData["CustomerCount"] customers added to the list.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Id</th>
+                <th>Customer Name</th>
+                <th>Customer Amount</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in TempData["CustomerList"] as List<Customer>)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!--When using a 'Keep'' method with a specific property, when navigate to Method2, message will not be set to null.-->
+    <!-- Remember we are returning the View in Method2 here with the use of 'Keep' -->
+    @{
+        TempData.Keep("Message");
+    }
+
+
+    <!--Tag Helper-->
+    <a a asp-cotroller="Demo"asp-action="Method2">Go to Method2</a>
+</body>
+</html>

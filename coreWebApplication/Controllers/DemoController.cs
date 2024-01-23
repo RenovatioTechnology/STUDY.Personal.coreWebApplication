@@ -28,8 +28,31 @@ namespace coreWebApplication.Controllers
 
             return View();
         }
+        public IActionResult Method1()
+        {
+            TempData["Message"] = "Customer Management System";
+            TempData["CustomerCount"] = customers.Count();
+            TempData["CustomerList"] = customers;
 
-        // TempData next section for developments
+            return View();
+        }
+      
+        public IActionResult Method2()
+        {
+            if (TempData["Message"] == null)
+            // Test with a break here!
+            {
+                // Return to the above Index() Action Method
+                return RedirectToAction("Index");
+
+                // Store the data to ViewBag or TempData
+                TempData["Message"] = TempData["Message"].ToString();
+
+            }
+            // Return Method2
+            return View();
+        }
+
 
     }
 }
