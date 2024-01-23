@@ -37,7 +37,7 @@ namespace coreWebApplication.Controllers
 
         // Modiflying attribute route, when accessing the below Message() this message will be access first. With IActionResult return a specific message 
         // attribute routing will override conventional routes 
-        [Route("~/")]
+       // [Route("~/")]
         [Route("/sample/message")]
         // Action view without a layout
         public IActionResult Message()

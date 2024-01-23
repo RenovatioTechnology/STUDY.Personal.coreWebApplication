@@ -1,5 +1,6 @@
 ﻿using coreWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace coreWebApplication.Controllers
 {
@@ -53,6 +54,24 @@ namespace coreWebApplication.Controllers
             return View();
         }
 
+        public IActionResult Login()
+        {
+            HttpContext.Session.SetString("username", "JNah");
 
+           // travel to another action method or another view. Using redirect to another action method of the same method itself, display below.
+            return RedirectToAction("Success");
+        }
+
+        public IActionResult Success()
+        {
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            return View();
+        }
+
+        public  IActionResult Logout()
+        {
+            HttpContext.Session.Remove("username");
+            return RedirectToAction("Index");
+        }
     }
 }
