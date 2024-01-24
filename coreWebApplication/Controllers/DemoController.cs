@@ -1,5 +1,8 @@
 ﻿using coreWebApplication.Models;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.ContentModel;
+using System;
 using System.Diagnostics;
 
 namespace coreWebApplication.Controllers
@@ -73,5 +76,23 @@ namespace coreWebApplication.Controllers
             HttpContext.Session.Remove("username");
             return RedirectToAction("Index");
         }
+
+        // Working with QueryString
+        // Request URL:http://localhost:5081/demo/QueryTest
+        // Request URL:http://localhost:5081/demo/QueryTest?name=Shallu%20Nah
+        public IActionResult QueryTest()
+        {
+            string name = "Jefferson Nah Jr";
+            // checking that if string dot is null or empty, there is an Httpcontext.Request.Query.
+            // Any query string can be passed with the variable name 
+            // <!--Reassigned query string to the name property, QueryTest?name=Shallu Nah-->
+            if (!String.IsNullOrEmpty(HttpContext.Request.Query["name"]))
+                name = HttpContext.Request.Query["name"];
+            ViewBag.Name = name;
+
+            return View();
+        }
+
+
     }
 }
